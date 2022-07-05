@@ -86,7 +86,7 @@
 	</div>
 </template>
 <script>
-import { createVNode, defineComponent, ref, onMounted } from 'vue';
+import { createVNode, defineComponent, ref, watchEffect, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 import { Layout, Menu, Dropdown, Avatar, Modal } from 'ant-design-vue'
 import {
@@ -184,6 +184,9 @@ export default defineComponent({
 				onCancel () {}
 			})
 		}
+
+		// 监测路径变化
+		watchEffect(_initSider)
 
 		return {
 			username,
